@@ -12,7 +12,7 @@ namespace Persistance.Repositories
     {
         public ProductRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
-            
+              
         }
     }
 }
