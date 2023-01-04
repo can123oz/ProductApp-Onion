@@ -18,4 +18,9 @@
     <ProjectReference Include="..\..\Core\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="UnitOfWorks\" />
+  </ItemGroup>
+
 </Project>

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Application.Dto
 {
-    public class ProductViewDto
+    public class ProductDto
     {
         public Guid Id { set; get; }
         public string Name { set; get; }

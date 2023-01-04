@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Persistance.Repositories
 {
-    public class GenericRepository<T> : IGenericRepositoryAsync<T> where T : BaseEntity
+    public class GenericRepository<T> : IGenericRepositoryAsync<T> where T : BaseEntity, new()
     {
         private readonly ApplicationDbContext _dbContext;
         public GenericRepository(ApplicationDbContext dbContext)
