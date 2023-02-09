@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Persistance.Repositories
 {
-    public class ProductRepository : GenericRepository<Product>, IProductResository
+    public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         public ProductRepository(ApplicationDbContext dbContext) : base(dbContext)
         {

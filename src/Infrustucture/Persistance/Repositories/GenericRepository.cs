@@ -13,6 +13,8 @@ namespace Persistance.Repositories
     public class GenericRepository<T> : IGenericRepositoryAsync<T> where T : BaseEntity, new()
     {
         private readonly ApplicationDbContext _dbContext;
+        private DbSet<T> Table { get => _dbContext.Set<T>(); }
+
         public GenericRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -27,12 +29,12 @@ namespace Persistance.Repositories
 
         public async Task<List<T>> GetAllAsync()
         {
-            return await _dbContext.Set<T>().ToListAsync();
+            return await Table.ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(Guid Id)
         {
-            return await _dbContext.Set<T>().FindAsync(Id);
+            return await Table.FindAsync(Id);
         }
     }
 }

@@ -11,6 +11,6 @@ namespace Application.Interfaces.UnitOfWork
     {
         //IDbContextTransaction : EntityFrameworkCore kütüphanesine ihtiyaç vardır.
         Task<IDbContextTransaction> BeginTransactionAsync();
-        public IProductResository ProductRepository { get; }
+        public IProductRepository ProductRepository { get; }
     }
 }
