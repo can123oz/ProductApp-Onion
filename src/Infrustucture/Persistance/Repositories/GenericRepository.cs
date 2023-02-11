@@ -29,12 +29,12 @@ namespace Persistance.Repositories
 
         public async Task<List<T>> GetAllAsync()
         {
-            return await Table.ToListAsync();
+            return await _dbContext.Set<T>().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(Guid Id)
         {
-            return await Table.FindAsync(Id);
+            return await _dbContext.Set<T>().FindAsync(Id);
         }
     }
 }

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Application.Wrappers
 {
-    public class ServiceResponse<T> 
+    public class ServiceResponse<T> : BaseResponse
     {
         public T Value { set; get; }
-        public ServiceResponse(T value)
+        public ServiceResponse(T value) 
         {
             Value = value;
         }
