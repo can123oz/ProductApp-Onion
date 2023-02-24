@@ -11,6 +11,7 @@ namespace Persistance.UnitOfWorks
     {
         private readonly ApplicationDbContext _context;
         public IProductRepository ProductRepository { get; }
+        public IOrderRepository OrderRepository { get; }
         public UnitOfWork(ApplicationDbContext context, IProductRepository productRepository)
         {
             _context = context;

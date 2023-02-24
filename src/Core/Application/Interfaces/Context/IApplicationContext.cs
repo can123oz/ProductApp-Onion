@@ -9,5 +9,7 @@ namespace Application.Interfaces.Context
     public interface IApplicationContext
     {
         DbSet<Product> Products { get; set; }
+        DbSet<Order> Orders { get; set; }
+        DbSet<Customer> Customers { get; set; }
     }
 }

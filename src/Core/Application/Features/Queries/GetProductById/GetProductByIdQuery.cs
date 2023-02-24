@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Queries.GetProductById
 {
-    public class GetProductByIdQuery: IRequest<ServiceResponse<GetProductByIdViewModel>>
+    public class GetProductByIdQuery : IRequest<ServiceResponse<GetProductByIdViewModel>>
     {
         public Guid Id { get; set; }
         public GetProductByIdQuery(Guid Id)
@@ -26,14 +26,14 @@ namespace Application.Features.Queries.GetProductById
 
             public GetProductByIdHandler(IMapper mapper, IProductRepository productRepository)
             {
-                _mapper= mapper;
-                _productRepository= productRepository;
+                _mapper = mapper;
+                _productRepository = productRepository;
             }
             public async Task<ServiceResponse<GetProductByIdViewModel>> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
             {
                 var product = await _productRepository.GetByIdAsync(request.Id);
                 var result = _mapper.Map<GetProductByIdViewModel>(product);
-                return new ServiceResponse<GetProductByIdViewModel>(result);
+                return new ServiceResponse<GetProductByIdViewModel>(result) { Success = true };
             }
         }
     }

@@ -17,8 +17,6 @@ namespace Application.Features.Commands
         public int Price { get; set; }
         public int Stock { get; set; }
 
-
-
         public class CreateProductHandler : IRequestHandler<CreateProductCommand, ServiceResponse<Guid>>
         {
             private readonly IProductRepository _productRepository;
@@ -31,8 +29,10 @@ namespace Application.Features.Commands
             public async Task<ServiceResponse<Guid>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
             {
                 var product = _mapper.Map<Product>(request);
+                product.CreateDate = DateTime.Now;
+                product.Description = "Product handled";
                 var result = await _productRepository.AddAsync(product);
-                return new ServiceResponse<Guid>(result.Id);
+                return new ServiceResponse<Guid>(result.Id) { Success = true };
             }
         }
     }
