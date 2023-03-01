@@ -36,5 +36,13 @@ namespace Persistance.Repositories
         {
             return await _dbContext.Set<T>().FindAsync(Id);
         }
+
+        public async Task<T> DeleteAsync(Guid Id)
+        {
+            var entity = await GetByIdAsync(Id);
+            var result = _dbContext.Remove(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
+        }
     }
 }

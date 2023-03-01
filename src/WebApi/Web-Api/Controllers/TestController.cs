@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -72,6 +73,13 @@ namespace Web_Api.Controllers
         [HttpPost("customer")]
         public async Task<IActionResult> PostCustomer(CreateCustomerCommand command)
         {
+            return Ok(await _mediator.Send(command));
+        }
+
+        [HttpDelete("deleteorder")]
+        public async Task<IActionResult> DeleteOrder(Guid Id)
+        {
+            var command = new DeleteOrderCommand(Id);
             return Ok(await _mediator.Send(command));
         }
 
